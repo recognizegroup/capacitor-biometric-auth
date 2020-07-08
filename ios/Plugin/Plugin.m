@@ -6,4 +6,5 @@
 CAP_PLUGIN(BiometricAuth, "BiometricAuth",
            CAP_PLUGIN_METHOD(isAvailable, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(verify, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(store, CAPPluginReturnPromise);
 )
