@@ -39,7 +39,7 @@ jobs:
           export GRADLE_OPTS="-Xmx2048m"
           cd android
           rm local.properties
-          ./gradlew --no-daemon --no-parallel assemble
+          ./gradlew --stacktrace --no-daemon --no-parallel assemble
           cd ..
 
       - name: Perform CodeQL Analysis
