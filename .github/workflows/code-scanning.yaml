@@ -27,9 +27,6 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
@@ -40,7 +37,10 @@ jobs:
       - name: Run preparation script
         run: |-
           export GRADLE_OPTS="-Xmx2048m"
-          (cd android; ./gradlew --no-daemon --no-parallel assemble)
+          cd android
+          rm local.properties
+          ./gradlew --no-daemon --no-parallel assemble
+          cd ..
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
