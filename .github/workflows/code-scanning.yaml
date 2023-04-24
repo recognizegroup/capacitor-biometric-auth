@@ -37,8 +37,8 @@ jobs:
       - name: Run preparation script
         run: |-
           export GRADLE_OPTS="-Xmx2048m"
+          npm ci
           cd android
-          rm local.properties
           ./gradlew --stacktrace --no-daemon --no-parallel assemble
           cd ..
 
